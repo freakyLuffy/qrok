@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        var email,pass;
+        $("#logout").click(function(){
+             window.location.href="/";
+        });
+          $("#login").click(function(){
+              
+               if ($( "#sec" ).hasClass('selected')) {
+                  var pass=$("#owner");
+                   pass.attr('value', 'login1');
+               }
+        });  
+        $("#fir").click(function(){
+              
+             if ($( "#fir" ).hasClass('unselected')) {
+	            $( "#fir" ).removeClass( 'unselected');
+            } 
+            if ($( "#sec" ).hasClass('selected')) {
+	            $( "#sec" ).removeClass( 'selected');
+                 $( "#sec" ).addClass( 'unselected');
+                 } 
+          $( "#fir" ).addClass( 'selected');
+        });
+        $("#sec").click(function(){
+              
+                if ($( "#sec" ).hasClass('unselected')) {
+	            $( "#sec" ).removeClass( 'unselected');
+                 } 
+                 if ($( "#fir" ).hasClass('selected')) {
+	            $( "#fir" ).removeClass( 'selected');
+                $( "#fir" ).addClass( 'unselected');
+                 } 
+               $( "#sec" ).addClass( 'selected');
+        });
+    });
+    </script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header"><img  id="logout" src="img/back.png" alt=""></div>
+        <div class="title"><h1>TESTAPP</h1></div>
+        <div class="main">
+            <div class="options">
+                <div id="fir" class="first selected">USER</div>
+                <div id="sec" class="second unselected">OWNER</div>
+            </div>
+            <form action="/signin" method="POST">
+                <div class="item"> 
+                    <div class="icon">
+                    <img src="img/userid.png" alt=""> <span>User ID</span>
+                    </div>
+                <input type="text" name="user" name="login" id="user" required></div>
+                <div class="item">
+                    <div class="icon">
+                        <img src="img/password.png" alt=""> <span>Password</span>
+                    </div>
+                    <input type="hidden" id="owner" name="login" value="login"/>
+                    <input type="password" name="password" id="pass" required>
+                </div>
+                <div class="reg"><input type="submit" id="login" value="login"></div>
+            </form>
+        </div>
+        
+    </div>
+      {{#if error}}
+        <span style="color:red">{{error}}</span>
+      {{/if}}
+</body>
+</html>

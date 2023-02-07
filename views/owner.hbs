@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <title>Final</title>
+    <link rel="stylesheet" href="style5.css" >
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img  id="logout" src="img/back.png" alt="">
+        </div>
+            <img class="user" src="img/user.jpg" alt="">
+            <div class="code">
+                  {{#if name }}
+                   <div class="name">{{name}}</div>
+                    {{else}}
+                  <div class="name">""</div>
+                    {{/if}}
+                <div class="scanComm" style="font-size:0.9em;font-weight:100">Open Camera to scan QR</div>
+                <div class="qr"><img src="img/cam.png" alt=""></div>
+                <div class="ucode">
+                    {{#if message }}
+                    <div class="title">{{message}}</div>
+                    {{else}}
+                     <div class="title">User Code</div>
+                    {{/if}}
+                   
+                    <form action="" class="search-bar">
+                        <input type="text" placeholder="Type code here" name="search">
+                        <button type="submit"><img class="searchimg" src="img/tick.png" alt=""></button>
+                    </form>
+                </div>
+            </div>
+        <table class="log">
+            <tr><th colspan="3">Entry Log</th></tr>
+            <tr><td>Name</td><td>Location</td><td>Timestamp</td></tr>
+            <tr><td>demo</td><td>demo</td><td>demo</td></tr>
+            <tr><td>demo</td><td>demo</td><td>demo</td></tr>
+            <tr><td>demo</td><td>demo</td><td>demo</td></tr>
+            <tr><td>demo</td><td>demo</td><td>demo</td></tr>
+        </table>
+    </div>
+</body>
+<script >
+          $("#logout").click(function(){
+             window.location.href="/logout";
+          });
+        
+    </script>
+</html>
