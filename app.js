@@ -9,7 +9,6 @@ const port = 5000 || process.env.PORT;
 const path = require('path');
 const {User}=require("./schema");
 const {Referral}=require("./schema");
-const { deepStrictEqual } = require("assert");
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({
   extended: false
@@ -89,6 +88,7 @@ app.post("/register",function(req,res){
             res.render("index",{message:"Successfully Registered"});
 
            }
+  
 });
 app.post("/signin",function(req,res){
   console.log(req.body.user);
